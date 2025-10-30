@@ -14,7 +14,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: 'Syntax',
+  title: 'Synctax',
   description:
     'Where developers connect. Share your code, find collaborators, and join a global community.',
 };
@@ -26,7 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`${ibmPlexMono.variable} ${firaCode.variable}`}>
-      <body className='font-fira bg-gray-50 text-gray-900'>{children}</body>
+      <body className='font-fira bg-background text-foreground'>
+        {children}
+      </body>
     </html>
   );
 }
