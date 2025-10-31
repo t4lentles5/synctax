@@ -3,7 +3,8 @@ import './globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['100'],
+  weight: ['600'],
+  style: ['italic'],
   variable: '--font-plex',
 });
 
