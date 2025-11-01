@@ -1,10 +1,12 @@
 @import 'tailwindcss';
+@plugin "@iconify/tailwind4";
 
 @theme {
   --font-plex: 'IBM Plex Mono', monospace;
   --font-fira: 'Fira Code', monospace;
 
   --color-background: var(--background);
+  --color-background-hover: var(--background-hover);
   --color-foreground: var(--foreground);
 
   --color-card-background: var(--card-background);
@@ -23,6 +25,7 @@
 @layer base {
   :root {
     --background: #ffffff;
+    --background-hover: #f1f4f6;
     --foreground: #111827;
 
     --card-background: #f8fafc;
@@ -40,6 +43,7 @@
 
   .dark {
     --background: #0d0d10;
+    --background-hover: #1d1e20;
     --foreground: #f9fafb;
 
     --card-background: #0f172a;
@@ -52,6 +56,6 @@
     --accent: #f472b6;
     --accent-foreground: #111827;
 
-    --border: #334155;
+    --border: #35393e;
   }
 }
