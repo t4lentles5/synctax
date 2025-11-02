@@ -1,6 +1,6 @@
 export const MoreOptionsButton = () => {
   return (
-    <button className='flex rounded-lg py-3 px-5 transition-colors duration-300 ease-in-out hover:bg-background-hover items-center w-56 gap-2 cursor-pointer'>
+    <button className='hover:bg-background-hover flex w-56 cursor-pointer items-center gap-2 rounded-lg px-5 py-3 transition-colors duration-300 ease-in-out'>
       <span
         className='icon-[stash--burger-classic] size-6'
         role='img'

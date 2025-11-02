@@ -43,13 +43,13 @@ const navItems = [
 
 export const Sidebar = () => {
   return (
-    <div className='flex flex-col py-8 h-screen justify-between border-r border-border'>
-      <section className='gap-5 flex flex-col'>
-        <Link href='/' className='text-2xl px-8 font-plex italic'>
+    <div className='border-border flex h-screen flex-col justify-between border-r py-8'>
+      <section className='flex flex-col gap-5'>
+        <Link href='/' className='font-plex px-8 text-2xl italic'>
           Synctax
         </Link>
 
-        <nav className='pt-5 px-3 gap-3 flex flex-col'>
+        <nav className='flex flex-col gap-3 px-3 pt-5'>
           {navItems.map((item) => (
             <NavItem
               key={item.label}

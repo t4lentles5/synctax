@@ -6,11 +6,11 @@ export const metadata = { title: 'Login • Synctax' };
 export default function LoginPage() {
   return (
     <>
-      <h1 className='text-2xl text-center font-plex italic'>Synctax</h1>
+      <h1 className='font-plex text-center text-2xl italic'>Synctax</h1>
 
       <LoginForm />
 
-      <p className='text-center text-sm text-foreground-muted'>
+      <p className='text-foreground-muted text-center text-sm'>
         Don’t have an account?{' '}
         <Link
           href='/auth/register'
