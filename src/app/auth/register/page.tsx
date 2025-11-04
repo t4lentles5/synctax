@@ -1,6 +1,8 @@
 import { RegisterForm } from '@/features/auth';
 import Link from 'next/link';
 
+export const metadata = { title: 'Register • Synctax' };
+
 export default function RegisterPage() {
   return (
     <>
