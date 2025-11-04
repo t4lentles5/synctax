@@ -1,5 +1,5 @@
-import { LoginForm } from '@/features/auth';
 import Link from 'next/link';
+import { LoginForm } from '@features/auth';
 
 export const metadata = { title: 'Login • Synctax' };
 
@@ -14,7 +14,7 @@ export default function LoginPage() {
         Don’t have an account?{' '}
         <Link
           href='/auth/register'
-          className='text-primary-deep hover:underline'
+          className='text-primary-deep font-semibold hover:underline'
         >
           Sign Up
         </Link>

@@ -1,5 +1,5 @@
-import { RegisterForm } from '@/features/auth';
 import Link from 'next/link';
+import { RegisterForm } from '@features/auth';
 
 export const metadata = { title: 'Register • Synctax' };
 
@@ -12,7 +12,10 @@ export default function RegisterPage() {
 
       <p className='text-foreground-muted text-center text-sm'>
         Already have an account?{' '}
-        <Link href='/auth/login' className='text-primary-deep hover:underline'>
+        <Link
+          href='/auth/login'
+          className='text-primary-deep font-semibold hover:underline'
+        >
           Sign In
         </Link>
       </p>
