@@ -1,9 +1,15 @@
-import Link from 'next/link';
 import { AuthInput } from './AuthInput';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   return (
     <form className='flex flex-col gap-4'>
+      <AuthInput
+        id={'email'}
+        inputType={'email'}
+        label={'Email'}
+        icon={'icon-[mage--email]'}
+      />
+
       <AuthInput
         id={'username'}
         inputType={'text'}
@@ -19,20 +25,19 @@ export const LoginForm = () => {
         isPassword={true}
       />
 
-      <div className='flex items-center justify-end'>
-        <Link
-          href='/auth/forgot-password'
-          className='text-primary-deep text-sm hover:underline'
-        >
-          Forgot password?
-        </Link>
-      </div>
+      <AuthInput
+        id={'confirm-password'}
+        inputType={'password'}
+        label={'Confirm Password'}
+        icon={'icon-[solar--lock-password-outline]'}
+        isPassword={true}
+      />
 
       <button
         type='submit'
         className='bg-primary hover:bg-primary-deep cursor-pointer rounded-lg py-2 font-medium text-white transition-colors duration-300 ease-in-out'
       >
-        Sign in
+        Sign Up
       </button>
     </form>
   );
