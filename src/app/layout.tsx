@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Fira_Code } from 'next/font/google';
+import { IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -6,12 +6,6 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ['600'],
   style: ['italic'],
   variable: '--font-plex',
-});
-
-const firaCode = Fira_Code({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-fira',
 });
 
 export const metadata = {
@@ -26,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={`${ibmPlexMono.variable} ${firaCode.variable}`}>
-      <body className='font-fira bg-background text-foreground'>
+    <html lang='en' className={`${ibmPlexMono.variable}`}>
+      <body className='bg-background text-foreground font-sans'>
         {children}
       </body>
     </html>

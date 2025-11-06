@@ -3,7 +3,6 @@
 
 @theme {
   --font-plex: 'IBM Plex Mono', monospace;
-  --font-fira: 'Fira Code', monospace;
 
   --color-background: var(--background);
   --color-background-hover: var(--background-hover);
