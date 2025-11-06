@@ -85,7 +85,7 @@ export const RegisterForm = () => {
 
       if (insertError) throw insertError;
 
-      console.log('User and profile created successfully');
+      window.location.href = '/';
     } catch (error) {
       console.error(error);
     }
