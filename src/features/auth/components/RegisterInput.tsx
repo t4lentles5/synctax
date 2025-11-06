@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { FieldError, UseFormRegister, UseFormWatch } from 'react-hook-form';
 
@@ -25,7 +23,7 @@ interface Props {
   error: FieldError | undefined;
 }
 
-export const AuthInput = ({
+export const RegisterInput = ({
   id,
   inputType,
   label,
@@ -96,7 +94,7 @@ export const AuthInput = ({
       </div>
 
       {error && (
-        <div className='px-2 pt-2 text-xs text-red-500'>
+        <div className='px-2 pt-2 text-xs text-red-400'>
           <span>{error.message}</span>
         </div>
       )}

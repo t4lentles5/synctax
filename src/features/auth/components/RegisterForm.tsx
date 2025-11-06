@@ -3,7 +3,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { createClient } from '@lib/supabase/client';
-import { AuthInput } from './AuthInput';
+import { RegisterInput } from './RegisterInput';
 
 export interface RegisterFormInputs {
   email: string;
@@ -93,7 +93,7 @@ export const RegisterForm = () => {
 
   return (
     <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
-      <AuthInput
+      <RegisterInput
         id={'email'}
         inputType={'email'}
         label={'Email'}
@@ -107,7 +107,7 @@ export const RegisterForm = () => {
         error={errors.email}
       />
 
-      <AuthInput
+      <RegisterInput
         id={'fullname'}
         inputType={'text'}
         label={'Fullname'}
@@ -129,7 +129,7 @@ export const RegisterForm = () => {
         error={errors.fullname}
       />
 
-      <AuthInput
+      <RegisterInput
         id={'username'}
         inputType={'text'}
         label={'Username'}
@@ -152,7 +152,7 @@ export const RegisterForm = () => {
         error={errors.username}
       />
 
-      <AuthInput
+      <RegisterInput
         id={'password'}
         inputType={'password'}
         label={'Password'}
@@ -167,7 +167,7 @@ export const RegisterForm = () => {
         error={errors.password}
       />
 
-      <AuthInput
+      <RegisterInput
         id={'confirm_password'}
         inputType={'password'}
         label={'Confirm Password'}

@@ -1,22 +1,81 @@
+'use client';
+
 import Link from 'next/link';
-import { AuthInput } from './AuthInput';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { createClient } from '@lib/supabase/client';
+import { LoginInput } from './LoginInput';
+
+export interface LoginFormInputs {
+  email: string;
+  password: string;
+}
 
 export const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    setError,
+  } = useForm<LoginFormInputs>();
+
+  const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
+    const supabase = createClient();
+    const { email, password } = data;
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        if (error.message.includes('Invalid login credentials')) {
+          setError('password', {
+            type: 'manual',
+            message: 'Invalid email or password.',
+          });
+          return;
+        }
+        throw error;
+      }
+
+      window.location.href = '/';
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <form className='flex flex-col gap-4'>
-      <AuthInput
-        id={'username'}
-        inputType={'text'}
-        label={'Username'}
-        icon={'icon-[solar--user-broken]'}
+    <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
+      <LoginInput
+        id={'email'}
+        inputType={'email'}
+        label={'Email'}
+        icon={'icon-[mage--email]'}
+        register={register}
+        watch={watch}
+        error={errors.email}
+        pattern={{
+          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          message: 'Please enter a valid email address.',
+        }}
       />
 
-      <AuthInput
+      <LoginInput
         id={'password'}
         inputType={'password'}
         label={'Password'}
         icon={'icon-[solar--lock-password-outline]'}
         isPassword={true}
+        register={register}
+        watch={watch}
+        error={errors.password}
+        minLength={{
+          value: 6,
+          message: 'Password must have at least 6 characters.',
+        }}
       />
 
       <div className='flex items-center justify-end'>
