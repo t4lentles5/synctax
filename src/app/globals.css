@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@plugin "@iconify/tailwind4";
+@plugin '@iconify/tailwind4';
 
 @theme {
   --font-plex: 'IBM Plex Mono', monospace;
@@ -15,6 +15,7 @@
 
   --color-primary: var(--primary);
   --color-primary-deep: var(--primary-deep);
+  --color-primary-muted: var(--primary-muted);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-accent: var(--accent);
@@ -40,6 +41,7 @@
 
     --primary: #8b5cf6;
     --primary-deep: #6a11cb;
+    --primary-muted: #8b5cf6bf;
     --primary-foreground: #f9fafb;
 
     --accent: #ec4899;
@@ -64,6 +66,7 @@
 
     --primary: #a78bfa;
     --primary-deep: #8b5cf6;
+    --primary-muted: #4c1d95;
     --primary-foreground: #111827;
 
     --accent: #f472b6;
