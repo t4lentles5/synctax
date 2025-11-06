@@ -1,70 +1,41 @@
 import Link from 'next/link';
-import { NavItem } from './NavItem';
-import { MoreOptionsButton } from './MoreOptionsButton';
 
-const navItems = [
-  {
-    href: '/',
-    icon: 'icon-[solar--home-smile-outline]',
-    iconActive: 'icon-[solar--home-smile-bold]',
-    label: 'Home',
-  },
-  {
-    href: '/search',
-    icon: 'icon-[fluent--search-24-regular]',
-    iconActive: 'icon-[fluent--search-12-filled]',
-    label: 'Search',
-  },
-  {
-    href: '/notifications',
-    icon: 'icon-[solar--bell-bing-outline]',
-    iconActive: 'icon-[solar--bell-bing-bold]',
-    label: 'Notifications',
-  },
-  {
-    href: '/messages',
-    icon: 'icon-[mage--direction-up-right-2]',
-    iconActive: 'icon-[mage--direction-up-right-2-fill]',
-    label: 'Messages',
-  },
-  {
-    href: '/create',
-    icon: 'icon-[mage--star-circle]',
-    iconActive: 'icon-[mage--star-circle-fill]',
-    label: 'Create',
-  },
-  {
-    href: '/profile',
-    icon: 'icon-[mage--user-circle]',
-    iconActive: 'icon-[mage--user-circle-fill]',
-    label: 'Profile',
-  },
-];
+import { NavItem } from './NavItem';
+import { navItems } from '../lib/data';
 
 export const Sidebar = () => {
   return (
-    <div className='border-border flex h-screen flex-col justify-between border-r py-8'>
-      <section className='flex flex-col gap-5'>
-        <Link href='/' className='font-plex px-8 text-2xl italic'>
-          Synctax
-        </Link>
+    <div className='border-border fixed h-[calc(100vh-64px)] w-3xs border-r'>
+      <div className='sticky flex h-full flex-col px-8 py-5'>
+        <section className='border-border flex flex-col gap-5 border-b pb-5'>
+          <nav className='flex flex-col gap-5'>
+            {navItems.map((item) => (
+              <NavItem
+                key={item.label}
+                href={item.href}
+                icon={item.icon}
+                iconActive={item.iconActive}
+                label={item.label}
+              />
+            ))}
+          </nav>
+        </section>
 
-        <nav className='flex flex-col gap-3 px-3 pt-5'>
-          {navItems.map((item) => (
-            <NavItem
-              key={item.label}
-              href={item.href}
-              icon={item.icon}
-              iconActive={item.iconActive}
-              label={item.label}
-            />
+        <section className='flex flex-col gap-3 pt-7'>
+          <h3 className='text-foreground-muted text-xs font-semibold tracking-wider uppercase'>
+            Trending
+          </h3>
+          {['React', 'Next.js', 'TypeScript', 'Tailwind'].map((tag) => (
+            <Link
+              key={tag}
+              href={tag}
+              className='text-foreground-muted hover:text-foreground w-full rounded px-3 py-2 text-left text-sm transition-colors duration-300 ease-in-out'
+            >
+              #{tag}
+            </Link>
           ))}
-        </nav>
-      </section>
-
-      <section className='px-3'>
-        <MoreOptionsButton />
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
