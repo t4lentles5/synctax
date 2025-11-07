@@ -1,6 +1,23 @@
-import { Footer } from '@components/layout';
+import { redirect } from 'next/navigation';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { Footer } from '@components/layout';
+import { createClient } from '@lib/supabase/server';
+
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect('/');
+  }
+
   return (
     <div className='bg-background relative flex min-h-screen flex-col items-center justify-between overflow-hidden'>
       <main className='z-10 grid w-full grow place-items-center p-5'>
