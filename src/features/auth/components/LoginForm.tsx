@@ -16,7 +16,7 @@ export const LoginForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isValid },
     setError,
   } = useForm<LoginFormInputs>();
 
@@ -89,7 +89,8 @@ export const LoginForm = () => {
 
       <button
         type='submit'
-        className='bg-primary hover:bg-primary-deep cursor-pointer rounded-lg py-2 font-medium text-white transition-colors duration-300 ease-in-out'
+        disabled={!isValid}
+        className={`${isValid ? 'bg-primary hover:bg-primary-deep cursor-pointer' : 'bg-primary-muted cursor-default'} rounded-lg py-2 font-medium text-white transition-colors duration-300 ease-in-out`}
       >
         Sign in
       </button>

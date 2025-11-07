@@ -21,11 +21,6 @@
   --color-accent-foreground: var(--accent-foreground);
 
   --color-border: var(--border);
-
-  --color-blob-purple: var(--blob-purple);
-  --color-blob-violet: var(--blob-violet);
-  --color-blob-pink: var(--blob-pink);
-  --color-blob-orange: var(--blob-orange);
 }
 
 @layer base {
@@ -47,11 +42,6 @@
     --accent-foreground: #f9fafb;
 
     --border: #d2d5d9;
-
-    --blob-purple: #6a11cb;
-    --blob-violet: #8b5cf6;
-    --blob-pink: #ec4899;
-    --blob-orange: #f97316;
   }
 
   .dark {
@@ -63,8 +53,8 @@
     --card-background: #0f172a;
     --card-foreground: #f9fafb;
 
-    --primary: #a78bfa;
-    --primary-deep: #8b5cf6;
+    --primary: #8b5cf6;
+    --primary-deep: #7445e1;
     --primary-muted: #a78bfabf;
     --primary-foreground: #111827;
 
@@ -72,10 +62,5 @@
     --accent-foreground: #111827;
 
     --border: #161616;
-
-    --blob-purple: #8b5cf6;
-    --blob-violet: #a78bfa;
-    --blob-pink: #f472b6;
-    --blob-orange: #fb923c;
   }
 }

@@ -8,7 +8,7 @@ export const Footer = () => {
         href='https://github.com/t4lentles5'
         rel='noopener noreferrer'
         target='_blank'
-        className='from-blob-purple to-blob-pink hover:decoration-blob-pink bg-linear-to-r bg-clip-text font-medium text-transparent transition-colors hover:underline'
+        className='bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text font-medium text-transparent transition-colors hover:underline hover:decoration-pink-400'
       >
         @t4lentles5
       </Link>

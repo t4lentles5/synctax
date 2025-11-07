@@ -64,11 +64,7 @@ export const LoginInput = ({
             minLength: minLength,
             maxLength: maxLength,
           })}
-          className={`text-foreground placeholder:text-foreground-muted ring-border w-full rounded-lg border bg-transparent py-2 pr-4 pl-10 text-sm ring outline-none focus:ring-2 ${
-            error
-              ? 'border-red-400 focus:ring-red-400'
-              : 'border-border focus:ring-primary'
-          }`}
+          className={`text-foreground border-border focus:ring-primary placeholder:text-foreground-muted ring-border w-full rounded-lg border bg-transparent py-2 pr-4 pl-10 text-sm ring outline-none focus:ring-2`}
         />
 
         {isPassword && (
