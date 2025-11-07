@@ -55,7 +55,7 @@
   }
 
   .dark {
-    --background: #0d0d10;
+    --background: #020202;
     --background-hover: #1d1e20;
     --foreground: #f9fafb;
     --foreground-muted: #f9fafb99;
@@ -71,7 +71,7 @@
     --accent: #f472b6;
     --accent-foreground: #111827;
 
-    --border: #35393e;
+    --border: #161616;
 
     --blob-purple: #8b5cf6;
     --blob-violet: #a78bfa;

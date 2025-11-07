@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={`${ibmPlexMono.variable}`}>
+    <html lang='en' className={`${ibmPlexMono.variable} dark`}>
       <body className='bg-background text-foreground font-sans'>
         {children}
       </body>

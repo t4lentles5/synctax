@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { getUser } from '../actions/get-user';
+import { UserOptions } from './UserOptions';
 
 export const Header = async () => {
   const user = await getUser();
@@ -34,7 +35,7 @@ export const Header = async () => {
           />
         </div>
 
-        <div className='flex items-center justify-center'>
+        <div className='relative flex items-center justify-center'>
           <button className='group hover:bg-background-hover grid cursor-pointer place-items-center rounded-full p-2 transition-colors duration-300 ease-in-out'>
             <span
               className='icon-[solar--bell-bing-outline] text-foreground-muted group-hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
@@ -43,21 +44,7 @@ export const Header = async () => {
             />
           </button>
 
-          <button className='group hover:bg-background-hover grid cursor-pointer place-items-center rounded-full p-2 transition-colors duration-300 ease-in-out'>
-            <span
-              className='icon-[solar--settings-linear] text-foreground-muted group-hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
-              role='img'
-              aria-hidden='true'
-            />
-          </button>
-
-          <button className='hover:bg-background-hover cursor-pointer rounded-full p-2 transition-colors duration-300 ease-in-out'>
-            <img
-              src={user.avatar_url!}
-              className='size-6 rounded-full'
-              alt={`${user.username} avatar`}
-            />
-          </button>
+          <UserOptions username={user.username} avatar_url={user.avatar_url!} />
         </div>
       </div>
     </header>
