@@ -35,9 +35,17 @@ export const Header = async () => {
         </div>
 
         <div>
-          <button className='hover:bg-card text-muted-foreground hover:text-foreground rounded-lg p-2 transition'>
+          <button className='cursor-pointer rounded-lg p-2'>
             <span
-              className='icon-[solar--settings-linear] text-foreground-muted size-6'
+              className='icon-[solar--bell-bing-outline] text-foreground-muted hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
+              role='img'
+              aria-hidden='true'
+            />
+          </button>
+
+          <button className='cursor-pointer rounded-lg p-2'>
+            <span
+              className='icon-[solar--settings-linear] text-foreground-muted hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
               role='img'
               aria-hidden='true'
             />

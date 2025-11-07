@@ -24,7 +24,7 @@ export default async function Layout({
       <Header />
       <div className='flex pt-16'>
         <Sidebar />
-        {children}
+        <div className='pl-64'>{children}</div>
       </div>
     </div>
   );

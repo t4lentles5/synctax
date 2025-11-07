@@ -19,12 +19,6 @@ export const navItems: NavItem[] = [
     label: 'Explore',
   },
   {
-    href: '/notifications',
-    icon: 'icon-[solar--bell-bing-outline]',
-    iconActive: 'icon-[solar--bell-bing-bold]',
-    label: 'Notifications',
-  },
-  {
     href: '/messages',
     icon: 'icon-[mage--direction-up-right-2]',
     iconActive: 'icon-[mage--direction-up-right-2-fill]',
@@ -39,7 +33,7 @@ export const navItems: NavItem[] = [
   {
     href: '/saved',
     icon: 'icon-[solar--bookmark-outline]',
-    iconActive: 'i-solar-bookmark-bold',
+    iconActive: 'icon-[solar--bookmark-bold]',
     label: 'Saved',
   },
 ];
