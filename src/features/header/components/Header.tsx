@@ -34,24 +34,24 @@ export const Header = async () => {
           />
         </div>
 
-        <div>
-          <button className='cursor-pointer rounded-lg p-2'>
+        <div className='flex items-center justify-center'>
+          <button className='group hover:bg-background-hover grid cursor-pointer place-items-center rounded-full p-2 transition-colors duration-300 ease-in-out'>
             <span
-              className='icon-[solar--bell-bing-outline] text-foreground-muted hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
+              className='icon-[solar--bell-bing-outline] text-foreground-muted group-hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
               role='img'
               aria-hidden='true'
             />
           </button>
 
-          <button className='cursor-pointer rounded-lg p-2'>
+          <button className='group hover:bg-background-hover grid cursor-pointer place-items-center rounded-full p-2 transition-colors duration-300 ease-in-out'>
             <span
-              className='icon-[solar--settings-linear] text-foreground-muted hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
+              className='icon-[solar--settings-linear] text-foreground-muted group-hover:text-foreground size-6 transition-colors duration-300 ease-in-out'
               role='img'
               aria-hidden='true'
             />
           </button>
 
-          <button className='hover:bg-card text-muted-foreground hover:text-foreground rounded-lg p-2 transition'>
+          <button className='hover:bg-background-hover cursor-pointer rounded-full p-2 transition-colors duration-300 ease-in-out'>
             <img
               src={user.avatar_url!}
               className='size-6 rounded-full'

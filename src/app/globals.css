@@ -31,7 +31,7 @@
 @layer base {
   :root {
     --background: #ffffff;
-    --background-hover: #f1f4f6;
+    --background-hover: #e6ebef;
     --foreground: #111827;
     --foreground-muted: #11182799;
 

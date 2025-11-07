@@ -6,9 +6,9 @@ import { navItems } from '../lib/data';
 export const Sidebar = () => {
   return (
     <div className='border-border fixed h-[calc(100vh-64px)] w-3xs border-r'>
-      <div className='sticky flex h-full flex-col px-8 py-5'>
+      <div className='sticky flex h-full flex-col p-5'>
         <section className='border-border flex flex-col gap-5 border-b pb-5'>
-          <nav className='flex flex-col gap-5'>
+          <nav className='flex flex-col gap-3'>
             {navItems.map((item) => (
               <NavItem
                 key={item.label}
@@ -21,7 +21,7 @@ export const Sidebar = () => {
           </nav>
         </section>
 
-        <section className='flex flex-col gap-3 pt-7'>
+        <section className='flex flex-col gap-3 p-3 pt-7'>
           <h3 className='text-foreground-muted text-xs font-semibold tracking-wider uppercase'>
             Trending
           </h3>
