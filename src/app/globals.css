@@ -6,6 +6,8 @@
 
   --color-background: var(--background);
   --color-background-hover: var(--background-hover);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-secondary-hover: var(--background-secondary-hover);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
 
@@ -27,6 +29,7 @@
   :root {
     --background: #ffffff;
     --background-hover: #e6ebef;
+    --background-secondary: #363c44;
     --foreground: #111827;
     --foreground-muted: #11182799;
 
@@ -47,6 +50,8 @@
   .dark {
     --background: #020202;
     --background-hover: #1d1e20;
+    --background-secondary: #2b303680;
+    --background-secondary-hover: #2b3036cc;
     --foreground: #f9fafb;
     --foreground-muted: #f9fafb99;
 
