@@ -5,10 +5,10 @@ import { navItems } from '../lib/data';
 
 export const Sidebar = () => {
   return (
-    <div className='border-border fixed h-[calc(100vh-64px)] w-3xs border-r'>
-      <div className='sticky flex h-full flex-col p-5'>
-        <section className='border-border flex flex-col gap-5 border-b pb-5'>
-          <nav className='flex flex-col gap-3'>
+    <div className='border-border fixed hidden h-[calc(100vh-64px)] w-20 border-r md:block lg:w-3xs'>
+      <div className='sticky flex h-full flex-col py-6 lg:px-5'>
+        <section className='border-border flex flex-col gap-5 pb-3 lg:border-b'>
+          <nav className='flex flex-col items-center gap-3'>
             {navItems.map((item) => (
               <NavItem
                 key={item.label}
@@ -21,7 +21,7 @@ export const Sidebar = () => {
           </nav>
         </section>
 
-        <section className='flex flex-col gap-3 p-3 pt-7'>
+        <section className='hidden flex-col gap-3 p-3 pt-7 lg:flex'>
           <h3 className='text-foreground-muted text-xs font-semibold tracking-wider uppercase'>
             Trending
           </h3>

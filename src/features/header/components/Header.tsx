@@ -11,14 +11,14 @@ export const Header = async () => {
   }
 
   return (
-    <header className='border-border bg-background/30 fixed z-10 flex h-16 w-full items-center justify-center border-b backdrop-blur-lg'>
+    <header className='border-border bg-background/30 fixed z-10 flex h-16 w-full items-center justify-center border-b px-10 backdrop-blur-lg'>
       <div className='sticky flex w-full max-w-5xl items-center justify-between'>
         <Link href='/' className='flex items-center gap-2'>
           <img src='/synctax.svg' alt='Synctax logo' className='size-10' />
           <span className='font-plex text-2xl'>Synctax</span>
         </Link>
 
-        <div className='relative'>
+        <div className='relative hidden md:block'>
           <div className='absolute inset-y-0 left-0 flex items-center pl-3'>
             <span
               className='icon-[fluent--search-24-regular] text-foreground-muted'

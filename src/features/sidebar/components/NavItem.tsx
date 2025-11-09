@@ -18,15 +18,15 @@ export const NavItem = ({ href, icon, iconActive, label }: Props) => {
   return (
     <Link
       href={href}
-      className='group text-foreground-muted hover:bg-background-hover flex items-center gap-2 rounded-lg p-3 transition-colors duration-300 ease-in-out'
+      className={`${isActive ? 'bg-primary lg:bg-transparent' : 'hover:bg-background-hover'} group text-foreground-muted flex size-12 items-center justify-center gap-3 rounded-lg transition-colors duration-300 ease-in-out lg:w-full lg:justify-start lg:px-3`}
     >
       <span
-        className={`${isActive ? `${iconActive} text-primary-deep` : icon} group-hover:text-primary-deep size-6 transition-colors duration-300`}
+        className={`${isActive ? `${iconActive} lg:text-primary-deep text-black` : `${icon} group-hover:text-primary-deep`} size-6 transition-colors duration-300`}
         role='img'
         aria-hidden='true'
       />
       <span
-        className={`${isActive && 'text-foreground'} group-hover:text-foreground font-medium transition-colors duration-300`}
+        className={`${isActive && 'text-foreground'} group-hover:text-foreground hidden font-medium transition-colors duration-300 lg:block`}
       >
         {label}
       </span>
