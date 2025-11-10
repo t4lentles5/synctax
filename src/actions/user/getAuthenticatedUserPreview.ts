@@ -2,12 +2,12 @@
 
 import { createClient } from '@lib/supabase/server';
 
-export interface Profile {
+export interface User {
   username: string;
   avatar_url: string | null;
 }
 
-export async function getUser() {
+export async function getAuthenticatedUserPreview() {
   const supabase = await createClient();
 
   const {
@@ -20,7 +20,7 @@ export async function getUser() {
     .from('profiles')
     .select('username, avatar_url')
     .eq('id', user.id)
-    .single<Profile>();
+    .single<User>();
 
   if (error) {
     console.error('Error fetching user:', error);

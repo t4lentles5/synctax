@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
-import { getUser } from '../actions/get-user';
 import { UserOptions } from './UserOptions';
+import { getAuthenticatedUserPreview } from '@actions/user/getAuthenticatedUserPreview';
 
 export const Header = async () => {
-  const user = await getUser();
+  const user = await getAuthenticatedUserPreview();
 
   if (!user) {
     return;
