@@ -1,11 +1,27 @@
-export interface NavItem {
-  href: string;
-  icon: string;
-  iconActive: string;
-  label: string;
-}
+export const mobileNavItems = [
+  {
+    href: '/',
+    icon: 'icon-[solar--home-smile-outline]',
+    iconActive: 'icon-[solar--home-smile-bold]',
+  },
+  {
+    href: '/search',
+    icon: 'icon-[mage--compass]',
+    iconActive: 'icon-[mage--compass-fill]',
+  },
+  {
+    href: '/create',
+    icon: 'icon-[mage--star-circle]',
+    iconActive: 'icon-[mage--star-circle-fill]',
+  },
+  {
+    href: '/messages',
+    icon: 'icon-[mage--direction-up-right-2]',
+    iconActive: 'icon-[mage--direction-up-right-2-fill]',
+  },
+];
 
-export const navItems: NavItem[] = [
+export const sidebarNavItems = [
   {
     href: '/',
     icon: 'icon-[solar--home-smile-outline]',

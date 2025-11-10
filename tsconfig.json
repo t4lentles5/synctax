@@ -19,11 +19,10 @@
       }
     ],
     "paths": {
-      // "@/*": ["./src/*"],
       "@features/*": ["./src/features/*"],
-      "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
-      "@actions/*": ["./src/actions/*"]
+      "@actions/*": ["./src/actions/*"],
+      "@ui/*": ["./src/ui/*"]
     }
   },
   "include": [

@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import { Footer } from '@components/layout';
+import { Footer } from '@ui/Footer/';
 import { createClient } from '@lib/supabase/server';
 
 export default async function Layout({

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { NavItem } from './NavItem';
-import { navItems } from '../lib/data';
+import { sidebarNavItems } from '@lib/data/navigation';
 
 export const Sidebar = () => {
   return (
@@ -9,7 +9,7 @@ export const Sidebar = () => {
       <div className='sticky flex h-full flex-col py-6 lg:px-5'>
         <section className='border-border flex flex-col gap-5 pb-3 lg:border-b'>
           <nav className='flex flex-col items-center gap-3'>
-            {navItems.map((item) => (
+            {sidebarNavItems.map((item) => (
               <NavItem
                 key={item.label}
                 href={item.href}

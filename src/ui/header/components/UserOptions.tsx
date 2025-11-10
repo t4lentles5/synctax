@@ -45,7 +45,7 @@ export const UserOptions = ({ username, avatar_url }: Props) => {
   };
 
   return (
-    <div className='relative'>
+    <div className='relative hidden md:block'>
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
