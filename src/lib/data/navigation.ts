@@ -53,3 +53,22 @@ export const sidebarNavItems = [
     label: 'Saved',
   },
 ];
+
+export const settingsNavItems = [
+  {
+    icon: 'icon-[solar--user-linear]',
+    tab: 'profile',
+  },
+  {
+    icon: 'icon-[solar--lock-outline]',
+    tab: 'account',
+  },
+  {
+    icon: 'icon-[solar--shield-user-outline]',
+    tab: 'security',
+  },
+  {
+    icon: 'icon-[solar--pallete-2-linear]',
+    tab: 'appearance',
+  },
+];

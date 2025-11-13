@@ -1,7 +1,5 @@
+import { SettingsView } from '@features/settitngs';
+
 export default function SettingsPage() {
-  return (
-    <>
-      <h1>SettingsPage</h1>
-    </>
-  );
+  return <SettingsView />;
 }
