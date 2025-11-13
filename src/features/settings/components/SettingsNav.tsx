@@ -8,7 +8,7 @@ interface Props {
 
 export const SettingsNav = ({ activeTab, onTabChange }: Props) => {
   return (
-    <nav className='flex grow flex-col gap-3 md:grow-0'>
+    <nav className='flex flex-col gap-3'>
       {settingsNavItems.map((item) => (
         <SettingsNavItem
           icon={item.icon}

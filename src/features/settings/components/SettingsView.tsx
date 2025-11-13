@@ -42,7 +42,7 @@ export const SettingsView = () => {
   };
 
   return (
-    <div className='flex flex-col gap-10 md:flex-row'>
+    <div className='hidden flex-col gap-10 md:flex md:flex-row'>
       <SettingsNav activeTab={activeTab} onTabChange={handleTabChange} />
 
       <div className='border-border grow rounded-lg border p-8'>
