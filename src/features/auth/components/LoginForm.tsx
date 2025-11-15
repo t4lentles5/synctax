@@ -1,59 +1,60 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { createClient } from '@lib/supabase/client';
 import { LoginInput } from './LoginInput';
-
-export interface LoginFormInputs {
-  email: string;
-  password: string;
-}
+import { loginAction } from '../actions/login';
+import { LoginFormInputs } from '../interfaces';
 
 export const LoginForm = () => {
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isValid },
     setError,
-  } = useForm<LoginFormInputs>();
+    clearErrors,
+  } = useForm<LoginFormInputs>({
+    mode: 'onBlur',
+  });
 
   const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
-    const supabase = createClient();
-    const { email, password } = data;
-
+    setLoading(true);
+    clearErrors();
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const response = await loginAction(data);
 
-      if (error) {
-        if (error.message.includes('Invalid login credentials')) {
-          setError('password', {
+      if (response?.type === 'error') {
+        if (response.field) {
+          setError(response.field, {
             type: 'manual',
-            message: 'Invalid email or password.',
+            message: response.message,
           });
-          return;
         }
-        throw error;
+        return;
       }
-
-      window.location.href = '/';
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error('Login error:', err);
+      setError('password', {
+        type: 'manual',
+        message: 'Something went wrong. Please try again.',
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
       <LoginInput
-        id={'email'}
-        inputType={'email'}
-        label={'Email'}
-        icon={'icon-[mage--email]'}
+        id='email'
+        inputType='email'
+        label='Email'
+        icon='icon-[mage--email]'
         register={register}
         watch={watch}
         error={errors.email}
@@ -64,10 +65,10 @@ export const LoginForm = () => {
       />
 
       <LoginInput
-        id={'password'}
-        inputType={'password'}
-        label={'Password'}
-        icon={'icon-[solar--lock-password-outline]'}
+        id='password'
+        inputType='password'
+        label='Password'
+        icon='icon-[solar--lock-password-outline]'
         isPassword={true}
         register={register}
         watch={watch}
@@ -89,10 +90,21 @@ export const LoginForm = () => {
 
       <button
         type='submit'
-        disabled={!isValid}
-        className={`${isValid ? 'bg-primary hover:bg-primary-deep cursor-pointer' : 'bg-primary-muted cursor-default'} rounded-lg py-2 font-medium text-white transition-colors duration-300 ease-in-out`}
+        disabled={!isValid || loading}
+        className={`${
+          isValid && !loading
+            ? 'bg-primary hover:bg-primary-deep cursor-pointer'
+            : 'bg-primary-muted cursor-default'
+        } relative flex items-center justify-center gap-2 rounded-lg py-2 font-medium text-white transition-colors duration-300 ease-in-out`}
       >
-        Sign in
+        {loading ? (
+          <>
+            <span className='size-4 animate-spin rounded-full border-2 border-white border-t-transparent' />
+            Signing in…
+          </>
+        ) : (
+          'Sign In'
+        )}
       </button>
     </form>
   );
