@@ -1,9 +1,9 @@
 'use server';
 
+import { type User } from '@features/user/interfaces';
 import { createClient } from '@lib/supabase/server';
-import { User } from '../interfaces';
 
-export async function getAuthenticatedUser() {
+export async function getUserInfo() {
   const supabase = await createClient();
 
   const {
@@ -14,7 +14,7 @@ export async function getAuthenticatedUser() {
 
   const { data, error } = await supabase
     .from('profiles')
-    .select('*')
+    .select('id, username, fullname, avatar_url, avatar_id, bio')
     .eq('id', user.id)
     .single<User>();
 

@@ -1,6 +1,7 @@
 'use server';
 
 import { createClient } from '@lib/supabase/server';
+import { User } from '../interfaces';
 
 export async function getUserByUsername(username: string) {
   const supabase = await createClient();
@@ -9,7 +10,7 @@ export async function getUserByUsername(username: string) {
     .from('profiles')
     .select('*')
     .eq('username', username)
-    .single();
+    .single<User>();
 
   if (error) {
     console.error('Error fetching user:', error);

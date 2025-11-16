@@ -1,11 +1,9 @@
 'use server';
 
+import { type User } from '@features/user/interfaces';
 import { createClient } from '@lib/supabase/server';
 
-export interface User {
-  username: string;
-  avatar_url: string | null;
-}
+type UserPreview = Pick<User, 'username' | 'avatar_url'>;
 
 export async function getAuthenticatedUserPreview() {
   const supabase = await createClient();
@@ -20,7 +18,7 @@ export async function getAuthenticatedUserPreview() {
     .from('profiles')
     .select('username, avatar_url')
     .eq('id', user.id)
-    .single<User>();
+    .single<UserPreview>();
 
   if (error) {
     console.error('Error fetching user:', error);

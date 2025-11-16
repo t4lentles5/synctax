@@ -1,5 +1,5 @@
 import { mobileNavItems } from '@lib/data/navigation';
-import { getAuthenticatedUserPreview } from '@actions/user/getAuthenticatedUserPreview';
+import { getAuthenticatedUserPreview } from '@features/user/actions';
 import { MobileNavItem } from './MobileNavItem';
 import { UserAvatarLink } from './UserAvatarLink ';
 
@@ -11,7 +11,7 @@ export const MobileNav = async () => {
   }
 
   return (
-    <div className='border-border fixed bottom-0 flex w-screen border-t md:hidden'>
+    <div className='border-border bg-background/30 fixed bottom-0 z-10 flex w-screen border-t backdrop-blur-lg md:hidden'>
       <nav className='flex w-full justify-evenly'>
         {mobileNavItems.map((item) => (
           <MobileNavItem

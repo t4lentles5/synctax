@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { createClient } from '@lib/supabase/client';
+import { type User } from '@features/user/interfaces';
+import { UserAvatar } from '@features/user/components';
 
-interface Props {
-  username: string;
-  avatar_url: string;
-}
+type Props = Pick<User, 'username' | 'avatar_url'>;
 
 export const UserOptions = ({ username, avatar_url }: Props) => {
   const router = useRouter();
@@ -51,11 +50,17 @@ export const UserOptions = ({ username, avatar_url }: Props) => {
         onClick={() => setIsOpen(!isOpen)}
         className='hover:bg-background-hover cursor-pointer rounded-full p-2 transition-colors duration-300 ease-in-out'
       >
-        <img
+        <UserAvatar
+          avatar_url={avatar_url}
+          username={username}
+          size={6}
+          isOpen={isOpen}
+        />
+        {/* <img
           src={avatar_url}
           className={`${isOpen && 'ring-primary ring-offset-background ring-2 ring-offset-3'} size-6 rounded-full`}
           alt={`${username} avatar`}
-        />
+        /> */}
       </button>
 
       {isOpen && (

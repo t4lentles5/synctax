@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FieldError, UseFormRegister, UseFormWatch } from 'react-hook-form';
-
-import { LoginFormInputs } from './LoginForm';
+import { LoginFormInputs } from '../interfaces';
 
 interface Props {
   id: 'email' | 'password';

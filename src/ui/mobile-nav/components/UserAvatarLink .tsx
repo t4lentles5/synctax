@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface Props {
-  username: string;
-  avatar_url: string;
-}
+import { type User } from '@features/user/interfaces';
+import { UserAvatar } from '@features/user/components';
+
+type Props = Pick<User, 'username' | 'avatar_url'>;
 
 export const UserAvatarLink = ({ username, avatar_url }: Props) => {
   const pathaname = usePathname();
@@ -15,10 +15,11 @@ export const UserAvatarLink = ({ username, avatar_url }: Props) => {
 
   return (
     <Link href={`/${username}`} className='grid place-items-center p-3'>
-      <img
-        src={avatar_url!}
-        className={`${isActive && 'ring-primary ring-offset-background ring-2 ring-offset-3'} size-6 rounded-full`}
-        alt={`${username} avatar`}
+      <UserAvatar
+        avatar_url={avatar_url}
+        username={username}
+        size={6}
+        isActive={isActive}
       />
     </Link>
   );

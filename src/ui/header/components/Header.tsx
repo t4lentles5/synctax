@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { UserOptions } from './UserOptions';
-import { getAuthenticatedUserPreview } from '@actions/user/getAuthenticatedUserPreview';
+import { getAuthenticatedUserPreview } from '@features/user/actions';
 
 export const Header = async () => {
   const user = await getAuthenticatedUserPreview();
@@ -15,6 +15,7 @@ export const Header = async () => {
       <div className='sticky flex w-full max-w-5xl items-center justify-between'>
         <Link href='/' className='flex items-center gap-2'>
           <img src='/synctax.svg' alt='Synctax logo' className='size-10' />
+
           <span className='font-plex text-2xl'>Synctax</span>
         </Link>
 

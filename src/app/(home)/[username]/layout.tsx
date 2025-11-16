@@ -2,8 +2,11 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { getAuthenticatedUser } from '@features/user/actions/get-authenticated-user';
-import { getUserByUsername } from '@features/user/actions/get-user-by-username';
+import {
+  getAuthenticatedUser,
+  getUserByUsername,
+} from '@features/user/actions';
+import { AvatarClient } from '@features/user/components';
 
 interface Props {
   params: Promise<{ username: string }>;
@@ -13,6 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { username } = await params;
   const authenticatedUser = await getAuthenticatedUser();
   const userByUsername = await getUserByUsername(username);
+
+  if (!userByUsername || !authenticatedUser) {
+    throw Error('User not found');
+  }
 
   const user =
     userByUsername.username === authenticatedUser.username
@@ -51,11 +58,14 @@ export default async function UserLayout({
   return (
     <div className='flex w-full max-w-3xl flex-col gap-5 p-10 lg:max-w-4xl'>
       <main className='flex w-full gap-5 sm:gap-10'>
-        <img
-          src={userByUsername.avatar_url}
-          alt=''
-          className='size-24 rounded-full sm:size-40'
+        <AvatarClient
+          id={userByUsername.id}
+          avatar_url={userByUsername.avatar_url}
+          avatar_id={userByUsername.avatar_id}
+          username={userByUsername.username}
+          isAuthenticatedUser={isAuthenticatedUser}
         />
+
         <div className='flex flex-col gap-5'>
           <div className='flex flex-col gap-1'>
             <div className='flex items-center gap-10 lg:gap-20'>
